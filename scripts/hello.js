@@ -11,7 +11,7 @@ function helloWorld() {
     alert("Whats up " + nameObject.name);
 }
 
-function letsGetSomeDataAsyncronously() {
+function letsGetSomeDataAsynchronously() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

@@ -8,7 +8,7 @@ class NameClass {
 var nameObject = new NameClass();
 
 function helloWorld() {
-    alert("Whats up " + nameObject.name);
+    alert("Hi " + nameObject.name);
 }
 
 function letsGetSomeDataAsynchronously() {

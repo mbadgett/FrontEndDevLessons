@@ -11,15 +11,19 @@ function helloWorld() {
     alert("Hi " + nameObject.name);
 }
 
-function letsGetSomeDataAsynchronously() {
+function letsGetSomeDataAsynchronously(year, month, day, onDataReceived) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML = this.responseText;
+            onDataReceived(this.responseText);
         }
     };
-    xhttp.open("POST", "demo_post.asp", true);
+    xhttp.open("GET", `https://whatsprintis.it/on/${year}/${month}/${day}`, true);
     xhttp.send();
+}
+
+var onAsyncResponseReceived = function(response) {
+    document.getElementById("demo").innerHTML = response;
 }
 
 var onLoadCallBack = () => {
@@ -29,8 +33,12 @@ var onLoadCallBack = () => {
         nameObject.name = textbox.value;
         textbox.value = "";
     };
-    submitButton.addEventListener("click", submitButtonCallback)
+    submitButton.addEventListener("click", submitButtonCallback);
+
+    // async call here!!!
+    letsGetSomeDataAsynchronously(2019, 9, 3, onAsyncResponseReceived);
 }
+
 
 window.onload = onLoadCallBack;
 

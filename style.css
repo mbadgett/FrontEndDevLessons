@@ -4,8 +4,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .clickButton {
     max-height: 50px;
+    display: block;
+    margin-bottom: 20px;
 }
